@@ -1,4 +1,15 @@
-Binaries/
-Diagnosis/
-Temp/
-*.set
+# LaTeX generované soubory
+*.aux
+*.fdb_latexmk
+*.fls
+*.loa
+*.lof
+*.log
+*.lol
+*.lot
+*.out
+*.pdf
+!pdf/*.pdf
+*.synctex.gz
+*.toa
+*.toc
