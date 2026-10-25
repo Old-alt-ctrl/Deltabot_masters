@@ -18,6 +18,25 @@ V rámci návrhu fyzického modelu pro tuto semestrální práci bylo nutné zaj
 \cite{IR}
 \cite{IoT}
 
+\subsection{NEC protokol}
+
+Protokolů pro přenos informace pomocí infra červené paprsku je několik, mezi ty nejrozšířenější patří i NEC. Data se přenáší pomocí modulace nosné frekvence, která je u tohoto protokolu stanovena na \SI{38}{\mega\hertz}. Pro kódování jednotlivých bitů se využívá modulace délky mezer neboli \emph{Pulse Distance Encoding}. \cite{nec}
+
+\subsubsection{Fyzická vrstva NEC protokolu}
+
+Přenos dat je zahájen inicializační sekvencí (tzv. \textit{leader code}), ta je složena z pulzu o délce \SI{9}{\milli\second} a následné mezery o délce \SI{4.5}{\milli\second}. Smyslem této sekvence bylo poskytnout čas pro ustálení řídicích smyček v přijímači. Po této sekvenci již přímo následuje datový rámec.
+
+Každý bit začíná nosným pulzem (tzv. burst), po kterém následuje mezera. Logické hodnoty jsou definované takto:
+\begin{itemize}
+    \item \textbf{Logická 0:} je reprezentována celkovou vzdáleností pulzů \SI{1.125}{\milli\second}.
+    \item \textbf{Logická 1:} je reprezentována celkovou vzdáleností pulzů \SI{2.25}{\milli\second}.
+\end{itemize}
+
+Důležitou vlastností tohoto protokolu je redundantní zabezpečení přenášených dat. Datové slovo obsahuje 8 bitů adresy a 8 bitů samotného příkazu. Adresa i příkaz jsou přeneseny dvakrát, nejprve ve standardním tvaru a poté v bitové inverzi, tím je zajištěna spolehlivost. Dohromady se přenese 32 bitů v pořadí: adresa, invertovaná adresa, příkaz a invertovaný příkaz.
+
+Pokud se vysílá totéž zpráva vícekrát, např. pokud je tlačítko drženo nepřetržitě, protokol nevyšle celou zprávu znovu, ale posílá pouze inicializační sekvenci a jeden speciální opakovací bit. Některé modifikované verze tohoto protokolu, mohou posílat celou zprávu znovu. Toto se opakuje každých \SI{108}{\milli\second} \cite{nec}.
+
+(mozna doplnit datovy ramec? foto)
 %% Kamera
 
 \section{Smart kamera}

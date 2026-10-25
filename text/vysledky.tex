@@ -7,16 +7,23 @@ V této sekci se zabývám navrženou a aplikovanou úpravou funkčního běžec
 \subsection{Identifikace typu komunikace}
 Pro identifikaci výrobcem použité IR komunikace (upravit), bylo potřeba použít přijímač.  
 \subsection{Bezdrátová komunikace}
-\subsection{Schéma zapojení dopravníku}
-\begin{comment}
-    \begin{figure}[!ht]
+Pomocí Logic analyzéru si lze snadno ověřit přijímaný signál na diodě (doplnit)..., výstupem je správně identifikovaný signál povelující zapnutí nebo vypnutí zařízení, \emph{0xEA15FF00}, dle komunikačního protokolu NEC na obrázku \ref{fig:nec_ident}.
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.85\linewidth]{obrazky/PC/schema_zap_dopr_pas.png}
+    \includegraphics[width=1\linewidth]{obrazky/PC/onoff_NEC_decoded_signal_from_Slave_c.png}
+    \caption{Identifikace detekovaného signálu z ovladače}
+    \label{fig:nec_ident}
+\end{figure}
+\subsection{Schéma zapojení dopravníku}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.85\linewidth]{obrazky/PC/onoff_NEC_decoded_signal_from_Slave_c.png}
     \caption{Schéma zapojení dopravníkového pásu s ovládáním}
     \label{fig:sch_zap_dop_pas}
 \end{figure}
 
-\end{comment}
+
 \begin{comment}
 
     \section{Programové řešení}
